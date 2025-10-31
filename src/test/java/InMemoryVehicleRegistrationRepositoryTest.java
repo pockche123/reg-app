@@ -1,3 +1,4 @@
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -11,6 +12,11 @@ public class InMemoryVehicleRegistrationRepositoryTest {
     @BeforeEach
     public void setup(){
         inMemoryVehicleRegistrationRepository = new InMemoryVehicleRegistrationRepository();
+    }
+
+    @AfterEach
+    public void tearDown(){
+        InMemoryDatabase.getInstance().clearAll();
     }
 
     @Test
