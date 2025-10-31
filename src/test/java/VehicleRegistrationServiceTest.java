@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 public class VehicleRegistrationServiceTest {
 
     private VehicleRegistrationService registrationService;
-    private InMemoryVehicleRegistrationRepository repository;
+    private RegistrationRepository repository;
 
     @BeforeEach
     public void setUp(){
