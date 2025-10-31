@@ -1,7 +1,10 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.Optional;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 public class VehicleRegistrationServiceTest {
 
@@ -44,14 +47,16 @@ public class VehicleRegistrationServiceTest {
         String regNumber2 = "L33T H4X";
 
         // Act
-        String actualVehicleId = registrationService.getVehicleId(regNumber);
-        String actualVehicleId2 = registrationService.getVehicleId(regNumber2);
+        Optional<String> actualVehicleId = registrationService.getVehicleId(regNumber);
+        Optional<String> actualVehicleId2 = registrationService.getVehicleId(regNumber2);
 
         // Assert
-        assertEquals("12345", actualVehicleId);
-        assertEquals(null, actualVehicleId2 );
+        assertEquals("12345", actualVehicleId.get());
+        assertFalse(actualVehicleId2.isPresent());
 
     }
+
+
 
 
 
