@@ -31,14 +31,21 @@ public class InMemoryVehicleRegistrationRepositoryTest {
     @Test
     public void test_removeVehicleRegistration_removesFromRepository(){
         // Arrange
-        VehicleRegistration vehicleRegistration = new VehicleRegistration("AB01 CDE", 2001, "12345");
-        VehicleRegistration vehicleRegistration2 = new VehicleRegistration("FG02 HJK", 2002, "678090");
+        VehicleRegistration vehicleRegistration = new VehicleRegistration();
+        vehicleRegistration.setRegistrationNumber("AB01 CDE");
+        vehicleRegistration.setYear(2001);
+        vehicleRegistration.setVehicleId("12345");
+        
+        VehicleRegistration vehicleRegistration2 = new VehicleRegistration();
+        vehicleRegistration2.setRegistrationNumber("FG02 HJK");
+        vehicleRegistration2.setYear(2002);
+        vehicleRegistration2.setVehicleId("678090");
+        
         inMemoryVehicleRegistrationRepository.save(vehicleRegistration);
         inMemoryVehicleRegistrationRepository.save(vehicleRegistration2);
 
         // Act
         inMemoryVehicleRegistrationRepository.remove("AB01 CDE");
-
 
         //Assert
         assertEquals(1, inMemoryVehicleRegistrationRepository.getTotalRegistrations());
