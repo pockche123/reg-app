@@ -2,7 +2,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class InMemoryVehicleRegistrationRepository implements  RegistrationRepository {
-    private final Map<String, VehicleRegistration> registrationMap = new HashMap<>();
+    private final Map<String, VehicleRegistration> registrationMap;
+    public InMemoryVehicleRegistrationRepository() {
+        this.registrationMap = InMemoryDatabase.getInstance().getRegistrations();
+    }
+
 
     @Override
     public void save(VehicleRegistration vehicleRegistration){
