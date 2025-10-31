@@ -8,9 +8,7 @@ public class VehicleRegistration {
         this.year = year;
         this.vehicleId = vehicleId;
     }
-    public VehicleRegistration(){
-
-    }
+    public VehicleRegistration(){}
 
     public String getRegistrationNumber() {
         return registrationNumber;
